@@ -76,9 +76,11 @@ All files live in `data/processed/` and share the row order defined by
 | `vcf_structural_qc_report.json` | Structural integrity audit of all 13,753 VCFs (§4.2) — gzip/header/record/genotype checks, sample-ID header comparison, CHROM consistency, variant-count stats. Structural only, not biological validation. |
 | `vcf_content_qc_report.json` | Content/biological-sanity audit of all 13,753 VCFs (§4.3) — reference/CHROM consistency, SNP/indel representation, REF/ALT sanity, FILTER/QUAL/genotype distributions, duplicate positions, per-isolate variant burden. Nothing filtered or corrected. |
 | `mutation_matrix_vcf_crosscheck_report.json` | Cross-check of the 157-mutation catalog (`features.csv`) against SnpEff-annotated VCF calls (§4.4) — per-mutation concordance rates, documented matching method, and full transparency on approximations. |
-
-`edge_index` / `edge_weight` (the graph component) do not exist yet — that
-is Person 2's work (§9).
+| `snp_matrix.npz` | Core-genome SNP matrix (§12), sparse `(13753, 465257)` binary, row order = `sample_ids.csv`. Confident ALT calls only; see §12 for the missingness/reference-collapse caveat. |
+| `snp_matrix_sites.csv` | `pos, alt, global_call_count, missing_rate, kept_in_core` for every variant site observed dataset-wide (§12) — the column index for `snp_matrix.npz`. |
+| `pyg_graph.pt` | `edge_index` (2×E) / `edge_weight` (E) as a `torch_geometric.data.Data` object, plus `sample_ids` for node-order alignment (§12). This is the graph component of the data contract. |
+| `graph_construction_report.json` | Full graph-build metadata (§12): site counts, distance metric, k/mode, degree distribution, connected-component sizes, cross-split near-duplicate diagnostic, timings, and the correctness-check results. |
+| `results/baseline_metrics.json` | Phase 1 tabular-baseline results (§11): RF / XGBoost / multi-task MLP, default and per-drug-tuned thresholds, val + test metrics. |
 
 ## 4. Canonical ID / order convention
 
@@ -362,26 +364,24 @@ documentation (e.g. UM6P Afro-TB database) becomes available. Recorded in
 ## 9. What Person 2 owns
 
 Per `CLAUDE.md`: Graph Neural Network architecture, multi-task learning,
-model training, validation, model evaluation. Concretely, next steps on top
-of what Person 1 has delivered:
+model training, validation, model evaluation. Tabular baselines (§11) and
+graph construction (§12) have been completed cross-role in this session;
+what remains is the GNN itself:
 
-- Build the SNP-distance / phylogenetic representation from
-  `AFRO_TB_VCF/*.vcf.gz`, keyed to `sample_ids.csv`'s canonical IDs. The
-  filename→ID mapping is already verified exact 1:1 (§4.1) — safe to use
-  directly, no further ID reconciliation needed for the VCF directory. The
-  VCF collection has also passed a structural (§4.2) and content/
-  biological-sanity (§4.3) audit, plus a mutation-matrix cross-check
-  (§4.4) — safe to parse directly, with the caveats noted in §8 (FILTER
-  is uninformative, REF/ALT case varies, ~8% genotype missingness).
-- Produce `edge_index` (2×E) and `edge_weight` (E) from that representation.
-- Consume `features.csv` as node features (`X_mutations`), `y_amr.csv` as
-  the multi-label AMR target, and (once cleaned) a `y_lineage` target from
-  `labels.csv`'s `Lineage` column.
-- Use `splits.csv` for train/val/test — do not re-split.
-- Consider whether the per-sample split in `splits.csv` needs
-  graph-aware adjustment (e.g. isolates connected by a phylogenetic edge
-  landing in different splits) before training — this was explicitly out of
-  scope for Person 1's split design.
+- **Done**: `edge_index` (2×E) / `edge_weight` (E) exist in
+  `data/processed/pyg_graph.pt` (§12) — built from `AFRO_TB_VCF/*.vcf.gz`
+  keyed to `sample_ids.csv`'s canonical order. Read §12 before using it,
+  especially the missingness/reference-collapse limitation and the 98
+  cross-split near-duplicate pairs it flags (not removed).
+- **Remaining**: design and train the actual GNN. Consume `features.csv` as
+  node features (`X_mutations`), `y_amr.csv` as the multi-label AMR target,
+  and (once cleaned) a `y_lineage` target from `labels.csv`'s `Lineage`
+  column (§8's `Lineage` caveat still applies — not yet cleaned).
+- Use `splits.csv` for train/val/test — do not re-split. §12's cross-split
+  near-duplicate diagnostic (98 val/test isolates with a near-identical
+  train neighbor) is worth reading before treating test performance as a
+  fully independent estimate in a transductive setting.
+- `results/baseline_metrics.json` (§11) is the number to beat.
 
 ## 10. What Person 3 owns
 
@@ -397,3 +397,181 @@ result visualization. Concretely:
   fully consistent (§8) — report both rather than silently picking one.
 - Explainability/visualization work should trace feature importance back to
   the 157 mutation names in `dataset_metadata.json.feature_names`.
+
+## 11. Phase 1 — Tabular baselines (completed)
+
+`src/baselines/` — Random Forest, XGBoost, and a hard-parameter-sharing
+multi-task MLP (`sklearn.neural_network.MLPClassifier`, shared hidden
+layers + one sigmoid output per drug — no `torch` needed for this baseline),
+all trained on `features.csv` → `y_amr.csv` using `splits.csv` exactly
+(train only; `val` used for the MLP's early stopping and for per-drug
+threshold tuning, never for model selection beyond that; `test` scored once).
+Run with:
+
+```
+.venv/Scripts/python.exe -m src.baselines.run_all
+```
+
+Per-drug decision thresholds are tuned on `val` only (F1-maximizing via
+`precision_recall_curve`) and applied unchanged to `test` — see
+`src/baselines/metrics.py:tune_per_drug_thresholds`. Both the default-0.5
+and tuned-threshold results are kept in `results/baseline_metrics.json` for
+comparison. Test macro-F1: **RF 0.826 → 0.869 tuned**, **XGBoost 0.656 →
+0.657 tuned** (its per-drug models have no real signal for the rarest drugs
+— CAP/LZD ROC-AUC ≈ 0.5–0.71 — so no threshold fixes that), **MLP 0.762 →
+0.850 tuned**. `ETH` has 0 test positives, so its AUC is `null`/excluded
+from macro-AUC by design, not a bug (`metrics.py`'s documented convention).
+
+## 12. Phase 2 — Genomic distance & graph construction (completed)
+
+`src/phylogeny/` builds the SNP matrix, pairwise distance, and k-NN graph
+from `AFRO_TB_VCF/*.vcf.gz`, reusing the filename↔ID mapping already
+verified in §4.1 and the stdlib gzip-streaming parse pattern from
+`scripts/audit_vcf_content.py` (no VCF library added). Regenerate with:
+
+```
+.venv/Scripts/python.exe -m src.phylogeny.run_build_graph
+```
+
+**Pipeline** (two streaming passes over all 13,753 VCFs, SNP-only —
+indels excluded, standard practice for bacterial SNP-distance phylogenetics):
+pass 1 tallies every observed `(pos, alt)` site's global call count and
+missingness rate; sites with missingness >10% are dropped from the **core**
+set (465,257 of 465,370 total observed sites kept — the filter barely
+trims anything, i.e. most sites have low missingness). Pass 2 builds a
+sparse `(13753, 465257)` binary matrix (`snp_matrix.npz`). Distance and
+graph construction never read `y_amr.csv`, `labels.csv`, or the `split`
+column of `splits.csv` — edges are purely a function of genomic content;
+`splits.csv` is read only afterward, to compute an informational diagnostic
+(see below), and is never modified.
+
+**Distance metric — Jaccard, not raw Hamming (deliberate, evidence-based
+choice, not the original default)**: `d(i,j) = 1 - |shared calls| /
+|union of calls|`. Two failure modes were found and fixed during
+development, in order:
+1. **Raw Hamming distance** (`row_sum[i] + row_sum[j] - 2*shared`) let
+   isolates with an unusually *low* total call count become spurious hubs —
+   one isolate (`ERR181826`, 314 calls vs. a population median of 945)
+   reached degree 11,978 (87% of the population), because its distance to
+   *anyone* is bounded above by its own tiny call count regardless of true
+   relatedness. Jaccard normalizes by each isolate's own call count, which
+   removes this artifact.
+2. A **`uint8` overflow bug**: the sparse matmul used to compute shared-call
+   counts accumulated in the SNP matrix's storage dtype (`uint8`, max 255)
+   *before* any cast to float, so any pair sharing more than 255 calls
+   silently wrapped around and produced a wrong distance. This corrupted
+   the very first full-scale run (caught by re-running the correctness
+   spot-check with a wider dtype and finding mismatches, *not* by luck) —
+   fixed by widening to `float32`/`float64` before the dot product
+   (`distance.py`). The `graph_construction_report.json.correctness_check`
+   block documents a passing spot-check (0/190 mismatches, max shared-call
+   count 2,218) as a permanent record that this was actually verified, not
+   just patched.
+
+**k-NN mode — union, not mutual**: strict mutual-kNN (edge kept only if
+each isolate is in the other's k-nearest list) left 98.4% of nodes isolated
+at full population scale — most isolates have a clear best candidate
+neighbor, just not a *reciprocal* one, in a population this diverse (union
+mode keeps an edge if either side nominates it).
+
+**Result** (`k=20`, `graph_construction_report.json` has full detail):
+404,944 directed edges (202,472 undirected); degree min 20 / median 26 /
+mean 29.4 / max 195 — no isolated nodes, no runaway hub; 6 connected
+components — one giant component covering 98.3% of isolates (13,520/13,753)
+plus 5 small satellite clusters (77/56/39/33/28 nodes), a biologically
+plausible structure (a few isolates/clusters more distant from the main
+population than any of their `k=20` neighbors would place them in it).
+
+**Known limitations, stated rather than hidden**:
+- These are per-isolate variant-call VCFs, not joint/gVCF all-sites calls —
+  a site absent from an isolate's record cannot be distinguished from
+  "matches reference" vs. "no confident call" without depth data this
+  dataset doesn't provide. The 10%-missingness core-site filter bounds
+  this rather than eliminating it.
+- **Cross-split near-duplicates**: 98 val/test isolates have a train-set
+  isolate at Jaccard distance ≤0.01 (≥99% shared calls) — flagged in
+  `graph_construction_report.json.cross_split_near_duplicate_diagnostic`,
+  not removed or acted on. `splits.csv` stays fixed per project rules;
+  whoever trains the GNN should read this before treating `test` metrics
+  as a fully independent estimate in a transductive setting.
+- k=20 and the 10% missingness threshold are documented defaults validated
+  at ~100-isolate and full scale, not exhaustively tuned — reasonable
+  starting points, not claimed-optimal.
+
+## 13. Phase 3 — Multi-task GNN (first pass, AMR-only)
+
+`src/gnn/` — a hard-parameter-sharing multi-task GCN: 2×`GCNConv` (157→64→64,
+using `pyg_graph.pt`'s Jaccard-derived `edge_weight`) + one shared linear head
+(9 logits, one per drug) — the graph analogue of `train_mlp.py`'s baseline.
+AMR-only for this first pass (no `y_lineage` head yet — see §9). Transductive:
+every node/edge is visible during the forward pass regardless of split (that
+is standard, not leakage — edges/features never encode labels); only the
+training loss is masked to `train`. Regenerate with:
+
+```
+.venv/Scripts/python.exe -m src.gnn.run_train
+```
+
+Per-drug BCE `pos_weight` from train-split class balance (same imbalance
+rationale as `train_random_forest.py`'s `class_weight="balanced"`); Adam,
+early stopping on val macro-F1 (patience 20). Same evaluation protocol as
+Phase 1 — thresholds tuned on `val` only via
+`src/baselines/metrics.py:tune_per_drug_thresholds`, applied unchanged to
+`test`. Full results in `results/gnn_metrics.json`.
+
+**Result: this first-pass GNN does not beat the Phase 1 tabular baselines
+on macro-F1** — worth stating plainly rather than as a success. Test
+macro-F1: GNN 0.604 → 0.637 tuned, vs. RF 0.826 → 0.869, MLP 0.762 → 0.850,
+XGBoost 0.656 → 0.657 (§11). Trained in 61s (81 epochs, early-stopped ~100).
+
+The interesting part is *where* it underperforms: per-drug **ROC-AUC is
+strong and close to RF's** (test macro-ROC-AUC 0.961 vs. RF's 0.998,
+clearly ahead of XGBoost's 0.900 — including on CAP/LZD, where XGBoost's
+AUC was only 0.5–0.71) — the model ranks isolates well. The gap is in
+**F1 at a fixed threshold** on the majority drugs (RIF/INH/EMB/PZA/STM/LEV),
+where RF gets near-1.0 F1 by exploiting an almost-deterministic
+mutation→resistance mapping directly, while the GCN's graph convolution
+mixes in neighbors' features every layer, which plausibly smooths out
+exactly the sharp per-isolate signal those drugs don't need help with.
+Consistent with, not contradicted by, strong AUC: the model still separates
+the classes, it's just less confidently calibrated at a single threshold.
+Not chased further in this pass — candidates for a next iteration: a
+skip/residual connection from raw features to the head (let the model use
+graph context only where it helps, not replace direct signal), fewer/more
+GCN layers, or GraphSAGE/GAT instead of GCN.
+
+**Edge-weight ablation** (`src/gnn/run_ablation.py`, same seed/architecture/
+hyperparameters, only `edge_weight` differs — `None` treats every kept edge
+as weight 1 instead of its Jaccard similarity): the Jaccard weighting is
+carrying real signal, not noise. Test macro-F1 **0.604→0.637 with weights vs.
+0.582→0.602 without** (0.5 / tuned), macro-ROC-AUC **0.961 vs. 0.950**,
+macro-PR-AUC **0.776 vs. 0.742** — weighted wins on every metric. The
+unweighted run also converged much earlier (epoch 41 vs. 81) and to a lower
+val macro-F1, i.e. it's not close-but-slower, it plateaus at a worse optimum.
+Full detail (including per-drug) in `results/gnn_edge_weight_ablation.json`.
+
+**Skip connection** (`src/gnn/run_skip_ablation.py`, `MultiTaskGCN(...,
+skip_connection=True)` in `model.py` — concatenates each isolate's raw
+157-feature vector onto the final GCN hidden state before the head, both
+variants trained with `use_edge_weight=True`): confirms the oversmoothing
+hypothesis above and **closes most of the gap to the tabular baselines**.
+Test macro-F1 (0.5 / tuned): **0.604→0.682 without skip vs. 0.637→0.707
+with skip**; macro-ROC-AUC **0.961→0.991**. Per-drug detail
+(`results/gnn_skip_connection_ablation.json`) shows the gain concentrated
+exactly where predicted — the majority drugs the plain GCN struggled with:
+RIF 0.833→0.936, INH 0.819→0.929, EMB 0.770→0.902, PZA 0.784→0.881,
+STM 0.709→0.870, LEV 0.685→0.840. One regression: LZD 0.133→0.000 (n=2
+test positives — a single-example threshold-tuning artifact at this sample
+size, not treated as a real signal either way, same caveat Phase 1's
+baselines hit on the same rare drugs). CAP stays 1.0, ETH stays undefined
+(0 test positives). Trained longer before early-stopping (epoch 181 vs. 81,
+167s vs. 83s) — direct feature access gives the optimizer more useful
+gradient to keep improving on.
+
+**Current best GNN vs. Phase 1** (test macro-F1, tuned threshold): **GCN +
+skip 0.707** vs. RF 0.869, MLP 0.850, XGBoost 0.657 — narrowed from a ~23-point
+gap to ~16 points, and now clearly ahead of XGBoost. `src/gnn/run_train.py`
+still defaults to `skip_connection=False`; adopting the skip connection as
+the default (and re-running the primary `results/gnn_metrics.json`) is a
+reasonable next step but wasn't done automatically here since it changes
+what "the" GNN result means going forward.
