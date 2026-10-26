@@ -571,7 +571,61 @@ gradient to keep improving on.
 **Current best GNN vs. Phase 1** (test macro-F1, tuned threshold): **GCN +
 skip 0.707** vs. RF 0.869, MLP 0.850, XGBoost 0.657 — narrowed from a ~23-point
 gap to ~16 points, and now clearly ahead of XGBoost. `src/gnn/run_train.py`
-still defaults to `skip_connection=False`; adopting the skip connection as
-the default (and re-running the primary `results/gnn_metrics.json`) is a
-reasonable next step but wasn't done automatically here since it changes
-what "the" GNN result means going forward.
+defaulted to `skip_connection=False` at the time of the numbers above; the
+defaults were later replaced by the improved model described in §13.1 (the
+GCN figures in this section are historical and reproducible via
+`run_ablation.py` / `run_skip_ablation.py`, which pin their original settings).
+
+### 13.1 Improvement pass, 1D-CNN baseline, and no-graph ablation
+
+**1D-CNN baseline** (`src/baselines/run_cnn.py`, `results/cnn_metrics.json`;
+added at the supervisor's suggestion): 3×`Conv1d` over the 157 binary mutation
+features as a 1-channel sequence, global max+mean pooling, 9 sigmoid outputs;
+same splits, pos_weight and val-only threshold tuning. Caveat: `features.csv`
+columns are gene-grouped, not genomic-position ordered, so convolutional
+locality is a weak inductive bias here. Test macro-F1 0.687 → 0.822 tuned.
+`python -m src.baselines.compare_models` prints the side-by-side table.
+
+**GNN improvement sweep** (`src/gnn/run_improve.py`,
+`results/gnn_improved_metrics.json`): 6 configs (GCN/GraphSAGE, 1–2 layers,
+linear vs. 128-unit MLP head, lr, early stopping on val macro-PR-AUC instead
+of F1@0.5). The winner was chosen on **val only** (GraphSAGE, 1 layer, MLP
+head, skip connection, lr 0.005, patience 30, PR-AUC stopping); test was read
+afterwards, over seeds 42/43/44. This is now the `src/gnn/run_train.py`
+default (`results/gnn_metrics.json` regenerated). `model.py`/`train.py` keep
+the old behaviour under their default arguments.
+
+**Test macro-F1** (val-tuned per-drug thresholds):
+
+| model | tuned | @0.5 |
+|---|---|---|
+| **GNN, improved (3 seeds)** | **0.886 ± 0.001** | 0.887 |
+| Random Forest | 0.869 | 0.826 |
+| MLP (sklearn) | 0.850 | 0.762 |
+| 1D-CNN | 0.822 | 0.687 |
+| GNN, previous (GCN + skip) | 0.707 | 0.682 |
+| XGBoost | 0.657 | 0.656 |
+
+Reading these numbers:
+- ETH has **0 test positives**, so its F1 is 0 for every model and macro-F1
+  over 9 drugs is capped near 0.889; 0.886 is close to that ceiling. CAP (4),
+  LZD (2) and ETH (0) test positives are too few to rank models on.
+- On the 6 well-populated drugs (RIF/INH/EMB/PZA/STM/LEV) the improved GNN's
+  test F1 is 0.992–0.997. Validation macro-F1 (~0.999) is inflated: thresholds
+  and the early-stopping epoch are both chosen on val, and ETH/LZD have one
+  positive each there — quote test numbers.
+- The earlier GNN deficit was mostly underfitting (linear head, high lr,
+  noisy F1@0.5 stopping), not the graph.
+
+**No-graph ablation** (`src/gnn/run_no_graph_ablation.py`,
+`results/gnn_no_graph_ablation.json`): identical architecture/config/seeds,
+empty edge set (SAGEConv then sees only each isolate's own features).
+Test macro-F1 **0.8858 ± 0.0007 with the graph vs. 0.8864 ± 0.0002
+without**; ROC-AUC 0.9998 vs. 0.9999; per-drug F1 identical to within 0.004
+(PZA 0.992 vs. 0.996). **On AMR prediction the phylogenetic graph adds no
+measurable benefit** — the 157 mutation features already determine
+resistance almost entirely. Do not claim the graph improves AMR prediction;
+the supported claim is that the improved model beats the RF/MLP/CNN/XGBoost
+baselines and that a feature-only version of it matches it. Whether the graph
+helps the not-yet-trained lineage head (§9) is untested. Single data split;
+the 98 cross-split near-duplicates (§12) remain a caveat on test.
