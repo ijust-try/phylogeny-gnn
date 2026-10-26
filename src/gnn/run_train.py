@@ -10,7 +10,7 @@ tune_per_drug_thresholds) -- same non-leakage discipline as Phase 1.
 AMR-only for this first pass (9 drug columns) -- no Lineage head yet (see
 README Sec. 9/12: labels.csv's Lineage column isn't cleaned).
 
-Defaults as of README Sec. 13's ablations: use_edge_weight=True (beats
+Defaults are now the improvement-sweep winner (see CONV_TYPE below). Earlier GCN defaults per README Sec. 13's ablations: use_edge_weight=True (beats
 uniform edges on every metric, results/gnn_edge_weight_ablation.json) and
 skip_connection=True (beats plain GCN on every metric except a single-example
 LZD noise case, results/gnn_skip_connection_ablation.json).
@@ -30,13 +30,19 @@ RESULTS_PATH = Path("results/gnn_metrics.json")
 SEED = 42
 
 HIDDEN_DIM = 64
-LR = 0.01
+LR = 0.005
 WEIGHT_DECAY = 5e-4
 DROPOUT = 0.3
 MAX_EPOCHS = 300
-PATIENCE = 20
-USE_EDGE_WEIGHT = True
+PATIENCE = 30
+USE_EDGE_WEIGHT = True  # ignored by SAGEConv; kept so the GCN ablations still import this module
 SKIP_CONNECTION = True
+# Default as of results/gnn_improved_metrics.json: the val-selected winner of the
+# improvement sweep (GraphSAGE, 1 layer, MLP head, early stop on val PR-AUC).
+CONV_TYPE = "sage"
+N_LAYERS = 1
+HEAD_HIDDEN = 128
+STOP_METRIC = "val_macro_pr_auc"
 
 
 def main():
@@ -57,6 +63,10 @@ def main():
         verbose=True,
         use_edge_weight=USE_EDGE_WEIGHT,
         skip_connection=SKIP_CONNECTION,
+        conv_type=CONV_TYPE,
+        n_layers=N_LAYERS,
+        head_hidden=HEAD_HIDDEN,
+        stop_metric=STOP_METRIC,
     )
     fit_seconds = time.time() - t0
     print(f"Trained to epoch {train_info['best_epoch']} (best val macro-F1={train_info['best_val_macro_f1']:.4f}) in {fit_seconds:.1f}s")
@@ -75,7 +85,7 @@ def main():
 
     results = {
         "seed": SEED,
-        "model": "multi_task_gcn",
+        "model": f"multi_task_{CONV_TYPE}",
         "n_train": int(masks_np["train"].sum()),
         "n_val": int(val_mask.sum()),
         "n_test": int(test_mask.sum()),
@@ -92,6 +102,10 @@ def main():
             "patience": PATIENCE,
             "use_edge_weight": USE_EDGE_WEIGHT,
             "skip_connection": SKIP_CONNECTION,
+            "conv_type": CONV_TYPE,
+            "n_layers": N_LAYERS,
+            "head_hidden": HEAD_HIDDEN,
+            "stop_metric": STOP_METRIC,
         },
         "fit_seconds": round(fit_seconds, 2),
         "best_epoch": train_info["best_epoch"],

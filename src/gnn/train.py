@@ -10,8 +10,9 @@ isolates with a near-identical train neighbor) for the one real caveat this
 implies for interpreting test performance.
 """
 
+import numpy as np
 import torch
-from sklearn.metrics import f1_score
+from sklearn.metrics import average_precision_score, f1_score
 
 from .model import MultiTaskGCN
 
@@ -39,6 +40,10 @@ def train_model(
     verbose=False,
     use_edge_weight=True,
     skip_connection=False,
+    conv_type="gcn",
+    n_layers=2,
+    head_hidden=0,
+    stop_metric="val_macro_f1",
 ):
     """use_edge_weight=False ablates the Jaccard-derived edge_weight: GCNConv
     then treats every edge as weight 1 (uniform), isolating whether the
@@ -62,6 +67,9 @@ def train_model(
         n_drugs=len(drug_columns),
         dropout=dropout,
         skip_connection=skip_connection,
+        conv_type=conv_type,
+        n_layers=n_layers,
+        head_hidden=head_hidden,
     )
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
     pos_weight = compute_pos_weight(y[train_mask])
@@ -87,13 +95,20 @@ def train_model(
             val_pred = (torch.sigmoid(val_logits[val_mask]) >= 0.5).int().numpy()
             val_true = y[val_mask].int().numpy()
             val_f1 = f1_score(val_true, val_pred, average="macro", zero_division=0)
+            if stop_metric == "val_macro_pr_auc":
+                # threshold-free, less noisy than F1@0.5; drugs with one class in val are skipped
+                val_prob = torch.sigmoid(val_logits[val_mask]).numpy()
+                stop_score = float(np.mean([average_precision_score(val_true[:, j], val_prob[:, j])
+                                            for j in range(val_true.shape[1]) if val_true[:, j].min() != val_true[:, j].max()]))
+            else:
+                stop_score = val_f1
 
         history.append({"epoch": epoch, "train_loss": float(loss.item()), "val_macro_f1": float(val_f1)})
         if verbose and epoch % 20 == 0:
             print(f"  epoch {epoch:3d}  train_loss={loss.item():.4f}  val_macro_f1={val_f1:.4f}")
 
-        if val_f1 > best_val_f1:
-            best_val_f1 = val_f1
+        if stop_score > best_val_f1:
+            best_val_f1 = stop_score
             best_epoch = epoch
             best_state = {k: v.clone() for k, v in model.state_dict().items()}
             epochs_without_improvement = 0

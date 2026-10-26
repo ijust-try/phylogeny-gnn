@@ -14,7 +14,9 @@ import torch
 from ..baselines.metrics import evaluate_multilabel, tune_per_drug_thresholds
 from .data import load_gnn_data
 from .train import train_model
-from .run_train import DROPOUT, HIDDEN_DIM, LR, MAX_EPOCHS, PATIENCE, SEED, WEIGHT_DECAY
+from .run_train import DROPOUT, HIDDEN_DIM, MAX_EPOCHS, SEED, WEIGHT_DECAY
+
+LR, PATIENCE = 0.01, 20  # pinned to the original GCN setup these ablations were run with
 
 RESULTS_PATH = Path("results/gnn_edge_weight_ablation.json")
 

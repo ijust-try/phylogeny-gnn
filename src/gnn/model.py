@@ -19,26 +19,37 @@ diluted by 2 layers of neighbor-averaging (see README Sec. 13).
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch_geometric.nn import GCNConv
+from torch_geometric.nn import GCNConv, SAGEConv
 
 
 class MultiTaskGCN(nn.Module):
-    def __init__(self, in_dim, hidden_dim, n_drugs, dropout=0.3, skip_connection=False):
+    """conv_type="gcn" uses Jaccard edge_weight; "sage" (GraphSAGE, mean aggregation)
+    keeps a separate self-weight but ignores edge_weight (SAGEConv has none).
+    n_layers and head_hidden default to the original 2-layer / linear-head design.
+    """
+
+    def __init__(self, in_dim, hidden_dim, n_drugs, dropout=0.3, skip_connection=False,
+                 conv_type="gcn", n_layers=2, head_hidden=0):
         super().__init__()
-        self.conv1 = GCNConv(in_dim, hidden_dim)
-        self.conv2 = GCNConv(hidden_dim, hidden_dim)
+        conv_cls = {"gcn": GCNConv, "sage": SAGEConv}[conv_type]
+        dims = [in_dim] + [hidden_dim] * n_layers
+        self.convs = nn.ModuleList(conv_cls(dims[i], dims[i + 1]) for i in range(n_layers))
+        self.conv_type = conv_type
         self.dropout = dropout
         self.skip_connection = skip_connection
         head_in_dim = hidden_dim + in_dim if skip_connection else hidden_dim
-        self.head = nn.Linear(head_in_dim, n_drugs)
+        if head_hidden:
+            self.head = nn.Sequential(nn.Linear(head_in_dim, head_hidden), nn.ReLU(),
+                                      nn.Dropout(dropout), nn.Linear(head_hidden, n_drugs))
+        else:
+            self.head = nn.Linear(head_in_dim, n_drugs)
 
     def forward(self, x, edge_index, edge_weight):
-        h = self.conv1(x, edge_index, edge_weight)
-        h = F.relu(h)
-        h = F.dropout(h, p=self.dropout, training=self.training)
-        h = self.conv2(h, edge_index, edge_weight)
-        h = F.relu(h)
-        h = F.dropout(h, p=self.dropout, training=self.training)
+        h = x
+        for conv in self.convs:
+            h = conv(h, edge_index, edge_weight) if self.conv_type == "gcn" else conv(h, edge_index)
+            h = F.relu(h)
+            h = F.dropout(h, p=self.dropout, training=self.training)
         if self.skip_connection:
             h = torch.cat([h, x], dim=1)
         return self.head(h)  # logits, (N, n_drugs) -- sigmoid applied by the loss/eval, not here
