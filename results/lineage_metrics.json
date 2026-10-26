@@ -1,0 +1,319 @@
+{
+  "classes": [
+    "lineage 1",
+    "lineage 2",
+    "lineage 3",
+    "lineage 4",
+    "lineage 5",
+    "lineage 6",
+    "lineage 7",
+    "lineage BOV-AFRI",
+    "lineage BOV_AFRI"
+  ],
+  "results": {
+    "curated/random_forest": {
+      "test": {
+        "accuracy": 0.3258971871968962,
+        "macro_f1": 0.31356685503682286,
+        "per_class": {
+          "lineage 1": {
+            "f1": 0.1893491124260355,
+            "support": 104
+          },
+          "lineage 2": {
+            "f1": 0.6274509803921569,
+            "support": 457
+          },
+          "lineage 3": {
+            "f1": 0.38345864661654133,
+            "support": 176
+          },
+          "lineage 4": {
+            "f1": 0.438475952529669,
+            "support": 1241
+          },
+          "lineage 5": {
+            "f1": 0.1,
+            "support": 10
+          },
+          "lineage 6": {
+            "f1": 0.08,
+            "support": 61
+          },
+          "lineage 7": {
+            "f1": 0.0,
+            "support": 4
+          },
+          "lineage BOV-AFRI": {
+            "f1": 0.003367003367003367,
+            "support": 2
+          },
+          "lineage BOV_AFRI": {
+            "f1": 1.0,
+            "support": 7
+          }
+        }
+      }
+    },
+    "curated/gnn_with_graph": {
+      "test_runs": [
+        {
+          "accuracy": 0.6062075654704171,
+          "macro_f1": 0.5564824625147694,
+          "per_class": {
+            "lineage 1": {
+              "f1": 0.46794871794871795,
+              "support": 104
+            },
+            "lineage 2": {
+              "f1": 0.7891637220259128,
+              "support": 457
+            },
+            "lineage 3": {
+              "f1": 0.5911330049261084,
+              "support": 176
+            },
+            "lineage 4": {
+              "f1": 0.6750392464678179,
+              "support": 1241
+            },
+            "lineage 5": {
+              "f1": 0.5517241379310345,
+              "support": 10
+            },
+            "lineage 6": {
+              "f1": 0.2,
+              "support": 61
+            },
+            "lineage 7": {
+              "f1": 0.3333333333333333,
+              "support": 4
+            },
+            "lineage BOV-AFRI": {
+              "f1": 0.4,
+              "support": 2
+            },
+            "lineage BOV_AFRI": {
+              "f1": 1.0,
+              "support": 7
+            }
+          }
+        },
+        {
+          "accuracy": 0.6105722599418041,
+          "macro_f1": 0.5853635232652032,
+          "per_class": {
+            "lineage 1": {
+              "f1": 0.487012987012987,
+              "support": 104
+            },
+            "lineage 2": {
+              "f1": 0.7920560747663551,
+              "support": 457
+            },
+            "lineage 3": {
+              "f1": 0.6170212765957447,
+              "support": 176
+            },
+            "lineage 4": {
+              "f1": 0.6805845511482255,
+              "support": 1241
+            },
+            "lineage 5": {
+              "f1": 0.5161290322580645,
+              "support": 10
+            },
+            "lineage 6": {
+              "f1": 0.1930116472545757,
+              "support": 61
+            },
+            "lineage 7": {
+              "f1": 0.3157894736842105,
+              "support": 4
+            },
+            "lineage BOV-AFRI": {
+              "f1": 0.6666666666666666,
+              "support": 2
+            },
+            "lineage BOV_AFRI": {
+              "f1": 1.0,
+              "support": 7
+            }
+          }
+        },
+        {
+          "accuracy": 0.5950533462657615,
+          "macro_f1": 0.5192079659459856,
+          "per_class": {
+            "lineage 1": {
+              "f1": 0.46,
+              "support": 104
+            },
+            "lineage 2": {
+              "f1": 0.7914691943127962,
+              "support": 457
+            },
+            "lineage 3": {
+              "f1": 0.5767195767195767,
+              "support": 176
+            },
+            "lineage 4": {
+              "f1": 0.6670146137787056,
+              "support": 1241
+            },
+            "lineage 5": {
+              "f1": 0.45714285714285713,
+              "support": 10
+            },
+            "lineage 6": {
+              "f1": 0.18719211822660098,
+              "support": 61
+            },
+            "lineage 7": {
+              "f1": 0.3333333333333333,
+              "support": 4
+            },
+            "lineage BOV-AFRI": {
+              "f1": 0.2,
+              "support": 2
+            },
+            "lineage BOV_AFRI": {
+              "f1": 1.0,
+              "support": 7
+            }
+          }
+        }
+      ]
+    },
+    "curated/gnn_no_graph": {
+      "test_runs": [
+        {
+          "accuracy": 0.3157129000969932,
+          "macro_f1": 0.2932068739692378,
+          "per_class": {
+            "lineage 1": {
+              "f1": 0.1724137931034483,
+              "support": 104
+            },
+            "lineage 2": {
+              "f1": 0.616,
+              "support": 457
+            },
+            "lineage 3": {
+              "f1": 0.3412698412698413,
+              "support": 176
+            },
+            "lineage 4": {
+              "f1": 0.4317343173431734,
+              "support": 1241
+            },
+            "lineage 5": {
+              "f1": 0.07407407407407407,
+              "support": 10
+            },
+            "lineage 6": {
+              "f1": 0.0,
+              "support": 61
+            },
+            "lineage 7": {
+              "f1": 0.0,
+              "support": 4
+            },
+            "lineage BOV-AFRI": {
+              "f1": 0.003369839932603201,
+              "support": 2
+            },
+            "lineage BOV_AFRI": {
+              "f1": 1.0,
+              "support": 7
+            }
+          }
+        },
+        {
+          "accuracy": 0.34238603297769155,
+          "macro_f1": 0.30396023441059666,
+          "per_class": {
+            "lineage 1": {
+              "f1": 0.17177914110429449,
+              "support": 104
+            },
+            "lineage 2": {
+              "f1": 0.6153846153846154,
+              "support": 457
+            },
+            "lineage 3": {
+              "f1": 0.35658914728682173,
+              "support": 176
+            },
+            "lineage 4": {
+              "f1": 0.42927429274292744,
+              "support": 1241
+            },
+            "lineage 5": {
+              "f1": 0.07272727272727272,
+              "support": 10
+            },
+            "lineage 6": {
+              "f1": 0.0898876404494382,
+              "support": 61
+            },
+            "lineage 7": {
+              "f1": 0.0,
+              "support": 4
+            },
+            "lineage BOV-AFRI": {
+              "f1": 0.0,
+              "support": 2
+            },
+            "lineage BOV_AFRI": {
+              "f1": 1.0,
+              "support": 7
+            }
+          }
+        },
+        {
+          "accuracy": 0.3312318137730359,
+          "macro_f1": 0.29700358808442384,
+          "per_class": {
+            "lineage 1": {
+              "f1": 0.20270270270270271,
+              "support": 104
+            },
+            "lineage 2": {
+              "f1": 0.589041095890411,
+              "support": 457
+            },
+            "lineage 3": {
+              "f1": 0.30036630036630035,
+              "support": 176
+            },
+            "lineage 4": {
+              "f1": 0.4221411192214112,
+              "support": 1241
+            },
+            "lineage 5": {
+              "f1": 0.06896551724137931,
+              "support": 10
+            },
+            "lineage 6": {
+              "f1": 0.08981555733761026,
+              "support": 61
+            },
+            "lineage 7": {
+              "f1": 0.0,
+              "support": 4
+            },
+            "lineage BOV-AFRI": {
+              "f1": 0.0,
+              "support": 2
+            },
+            "lineage BOV_AFRI": {
+              "f1": 1.0,
+              "support": 7
+            }
+          }
+        }
+      ]
+    }
+  }
+}

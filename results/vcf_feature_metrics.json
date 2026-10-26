@@ -1,0 +1,3156 @@
+{
+  "n_features": 932,
+  "baselines": {
+    "random_forest": {
+      "fit_seconds": 3.06,
+      "default_threshold_0.5": {
+        "val": {
+          "macro_f1": 0.5547039350543318,
+          "micro_f1": 0.6166398529073777,
+          "macro_roc_auc": 0.8993483636620153,
+          "macro_pr_auc": 0.7151896701246733,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.6129666011787819,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9496826962770163,
+              "pr_auc": 0.9394142468112112
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.6310483870967742,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9796710117939169,
+              "pr_auc": 0.9648219987320242
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.5763571790969051,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9721943934904285,
+              "pr_auc": 0.9495438981715436
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.703125,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.952893211513901,
+              "pr_auc": 0.8901700102062281
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.5524728588661038,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.951917434292421,
+              "pr_auc": 0.8801089509958029
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.6941431670281996,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9427694645779752,
+              "pr_auc": 0.761677994100497
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.8898881866796307,
+              "pr_auc": 0.8004849660523763
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.3333333333333333,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9985443959243085,
+              "pr_auc": 0.25
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.45657447840853954,
+              "pr_auc": 0.00048496605237633366
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.5276326700949893,
+          "micro_f1": 0.6128436128436129,
+          "macro_roc_auc": 0.9388317213481736,
+          "macro_pr_auc": 0.8685509435650904,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.6204986149584487,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9545272627830474,
+              "pr_auc": 0.9402607135423701
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.6254399195575666,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9783805411533267,
+              "pr_auc": 0.9629339006096017
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.5582349923037455,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9703467153284672,
+              "pr_auc": 0.9437110995926382
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.6658795749704841,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9525054945054945,
+              "pr_auc": 0.8744660099501576
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.5879629629629629,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9602100292359708,
+              "pr_auc": 0.8888595771682308
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.690677966101695,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9662856695266555,
+              "pr_auc": 0.8376912816053484
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 1.0,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.7283980582524271,
+              "pr_auc": 0.5004849660523764
+            }
+          }
+        }
+      },
+      "tuned_per_drug_threshold": {
+        "thresholds": {
+          "RIF": 0.8238888888888889,
+          "INH": 0.7738888888888888,
+          "EMB": 0.7933333333333333,
+          "PZA": 0.6683333333333333,
+          "STM": 0.7333333333333333,
+          "LEV": 0.7333333333333333,
+          "CAP": 0.59,
+          "ETH": 0.6866666666666666,
+          "LZD": 0.01
+        },
+        "tuned_on": "val (F1-maximizing per drug via precision_recall_curve)",
+        "val": {
+          "macro_f1": 0.7025348825122828,
+          "micro_f1": 0.8409216589861751,
+          "macro_roc_auc": 0.8993483636620153,
+          "macro_pr_auc": 0.7151896701246733,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.8238888888888889,
+              "f1": 0.8621621621621621,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9496826962770163,
+              "pr_auc": 0.9394142468112112
+            },
+            "INH": {
+              "threshold": 0.7738888888888888,
+              "f1": 0.9000812347684809,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9796710117939169,
+              "pr_auc": 0.9648219987320242
+            },
+            "EMB": {
+              "threshold": 0.7933333333333333,
+              "f1": 0.8808864265927978,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9721943934904285,
+              "pr_auc": 0.9495438981715436
+            },
+            "PZA": {
+              "threshold": 0.6683333333333333,
+              "f1": 0.802962962962963,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.952893211513901,
+              "pr_auc": 0.8901700102062281
+            },
+            "STM": {
+              "threshold": 0.7333333333333333,
+              "f1": 0.814498933901919,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.951917434292421,
+              "pr_auc": 0.8801089509958029
+            },
+            "LEV": {
+              "threshold": 0.7333333333333333,
+              "f1": 0.7733333333333333,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9427694645779752,
+              "pr_auc": 0.761677994100497
+            },
+            "CAP": {
+              "threshold": 0.59,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.8898881866796307,
+              "pr_auc": 0.8004849660523763
+            },
+            "ETH": {
+              "threshold": 0.6866666666666666,
+              "f1": 0.4,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9985443959243085,
+              "pr_auc": 0.25
+            },
+            "LZD": {
+              "threshold": 0.01,
+              "f1": 0.0,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.45657447840853954,
+              "pr_auc": 0.00048496605237633366
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.6693855784515496,
+          "micro_f1": 0.839035333707235,
+          "macro_roc_auc": 0.9388317213481736,
+          "macro_pr_auc": 0.8685509435650904,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.8238888888888889,
+              "f1": 0.8607764390896921,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9545272627830474,
+              "pr_auc": 0.9402607135423701
+            },
+            "INH": {
+              "threshold": 0.7738888888888888,
+              "f1": 0.8950366151342555,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9783805411533267,
+              "pr_auc": 0.9629339006096017
+            },
+            "EMB": {
+              "threshold": 0.7933333333333333,
+              "f1": 0.8797709923664122,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9703467153284672,
+              "pr_auc": 0.9437110995926382
+            },
+            "PZA": {
+              "threshold": 0.6683333333333333,
+              "f1": 0.7993366500829188,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9525054945054945,
+              "pr_auc": 0.8744660099501576
+            },
+            "STM": {
+              "threshold": 0.7333333333333333,
+              "f1": 0.8151093439363817,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9602100292359708,
+              "pr_auc": 0.8888595771682308
+            },
+            "LEV": {
+              "threshold": 0.7333333333333333,
+              "f1": 0.7533875338753387,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9662856695266555,
+              "pr_auc": 0.8376912816053484
+            },
+            "CAP": {
+              "threshold": 0.59,
+              "f1": 1.0,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.6866666666666666,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.01,
+              "f1": 0.021052631578947368,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.7283980582524271,
+              "pr_auc": 0.5004849660523764
+            }
+          }
+        }
+      }
+    },
+    "xgboost": {
+      "fit_seconds": 28.44,
+      "default_threshold_0.5": {
+        "val": {
+          "macro_f1": 0.7042989304142987,
+          "micro_f1": 0.9431314623338257,
+          "macro_roc_auc": 0.9342069972594282,
+          "macro_pr_auc": 0.7755725598090775,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.9374185136897001,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9858675150755503,
+              "pr_auc": 0.9833022631896041
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.9792,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9972443912388046,
+              "pr_auc": 0.9958541731007522
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.9713261648745519,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9970744555759372,
+              "pr_auc": 0.9941031087372392
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.8808446455505279,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9817870291277655,
+              "pr_auc": 0.9520645933239057
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.9547325102880658,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9930558025393891,
+              "pr_auc": 0.980871141127261
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.8651685393258427,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9884176993219547,
+              "pr_auc": 0.9373846384805873
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.75,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9653864851725814,
+              "pr_auc": 0.8027548209366392
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9990295972828724,
+              "pr_auc": 0.3333333333333333
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.5,
+              "pr_auc": 0.00048496605237633366
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.7168148130229619,
+          "micro_f1": 0.9396909159442141,
+          "macro_roc_auc": 0.9298009106781112,
+          "macro_pr_auc": 0.8466861026173358,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.9361147327249022,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9879744738270895,
+              "pr_auc": 0.9849347701097099
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.9781376518218623,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.995023034304164,
+              "pr_auc": 0.9934164312080161
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.9608938547486033,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9957404853966387,
+              "pr_auc": 0.9912975709282946
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.8710217755443886,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9818397435897437,
+              "pr_auc": 0.9414865644303789
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.9398058252427185,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9886970729003772,
+              "pr_auc": 0.9660644308439921
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.8764705882352941,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9892539525691699,
+              "pr_auc": 0.9453191213135418
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.8888888888888888,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 0.9998785228377065,
+              "pr_auc": 0.95
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.5,
+              "pr_auc": 0.0009699321047526673
+            }
+          }
+        }
+      },
+      "tuned_per_drug_threshold": {
+        "thresholds": {
+          "RIF": 0.5728574991226196,
+          "INH": 0.9836823344230652,
+          "EMB": 0.45139163732528687,
+          "PZA": 0.38118255138397217,
+          "STM": 0.6669424176216125,
+          "LEV": 0.2859501838684082,
+          "CAP": 0.18456591665744781,
+          "ETH": 0.22667010128498077,
+          "LZD": 0.01
+        },
+        "tuned_on": "val (F1-maximizing per drug via precision_recall_curve)",
+        "val": {
+          "macro_f1": 0.779474920285309,
+          "micro_f1": 0.9477557027225901,
+          "macro_roc_auc": 0.9342069972594282,
+          "macro_pr_auc": 0.7755725598090775,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5728574991226196,
+              "f1": 0.9401709401709402,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9858675150755503,
+              "pr_auc": 0.9833022631896041
+            },
+            "INH": {
+              "threshold": 0.9836823344230652,
+              "f1": 0.9814366424535916,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9972443912388046,
+              "pr_auc": 0.9958541731007522
+            },
+            "EMB": {
+              "threshold": 0.45139163732528687,
+              "f1": 0.9741763134461264,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9970744555759372,
+              "pr_auc": 0.9941031087372392
+            },
+            "PZA": {
+              "threshold": 0.38118255138397217,
+              "f1": 0.8969521044992743,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9817870291277655,
+              "pr_auc": 0.9520645933239057
+            },
+            "STM": {
+              "threshold": 0.6669424176216125,
+              "f1": 0.9603340292275574,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9930558025393891,
+              "pr_auc": 0.980871141127261
+            },
+            "LEV": {
+              "threshold": 0.2859501838684082,
+              "f1": 0.8733153638814016,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9884176993219547,
+              "pr_auc": 0.9373846384805873
+            },
+            "CAP": {
+              "threshold": 0.18456591665744781,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9653864851725814,
+              "pr_auc": 0.8027548209366392
+            },
+            "ETH": {
+              "threshold": 0.22667010128498077,
+              "f1": 0.5,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9990295972828724,
+              "pr_auc": 0.3333333333333333
+            },
+            "LZD": {
+              "threshold": 0.01,
+              "f1": 0.0,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.5,
+              "pr_auc": 0.00048496605237633366
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.7143220860463507,
+          "micro_f1": 0.9362182502351835,
+          "macro_roc_auc": 0.9298009106781112,
+          "macro_pr_auc": 0.8466861026173358,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5728574991226196,
+              "f1": 0.9349967170059094,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9879744738270895,
+              "pr_auc": 0.9849347701097099
+            },
+            "INH": {
+              "threshold": 0.9836823344230652,
+              "f1": 0.9721311475409836,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.995023034304164,
+              "pr_auc": 0.9934164312080161
+            },
+            "EMB": {
+              "threshold": 0.45139163732528687,
+              "f1": 0.961038961038961,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9957404853966387,
+              "pr_auc": 0.9912975709282946
+            },
+            "PZA": {
+              "threshold": 0.38118255138397217,
+              "f1": 0.8723747980613893,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9818397435897437,
+              "pr_auc": 0.9414865644303789
+            },
+            "STM": {
+              "threshold": 0.6669424176216125,
+              "f1": 0.9294117647058824,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9886970729003772,
+              "pr_auc": 0.9660644308439921
+            },
+            "LEV": {
+              "threshold": 0.2859501838684082,
+              "f1": 0.8700564971751412,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9892539525691699,
+              "pr_auc": 0.9453191213135418
+            },
+            "CAP": {
+              "threshold": 0.18456591665744781,
+              "f1": 0.8888888888888888,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 0.9998785228377065,
+              "pr_auc": 0.95
+            },
+            "ETH": {
+              "threshold": 0.22667010128498077,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.01,
+              "f1": 0.0,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.5,
+              "pr_auc": 0.0009699321047526673
+            }
+          }
+        }
+      }
+    },
+    "multi_task_mlp": {
+      "fit_seconds": 27.66,
+      "default_threshold_0.5": {
+        "val": {
+          "macro_f1": 0.6926970062658447,
+          "micro_f1": 0.9314612968778866,
+          "macro_roc_auc": 0.9873769832766306,
+          "macro_pr_auc": 0.7640031772040224,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.9317738791423001,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9829898416829841,
+              "pr_auc": 0.9796665223972548
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.9824561403508771,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.997329741952647,
+              "pr_auc": 0.9967354847723564
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.9678571428571429,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9953741592587366,
+              "pr_auc": 0.991447685697576
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.8169014084507042,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9728445570058661,
+              "pr_auc": 0.9237359741835262
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.9249492900608519,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9899193548387097,
+              "pr_auc": 0.9694660704433586
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.8603351955307262,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.989883387888707,
+              "pr_auc": 0.9403169933965522
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.75,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9861934856587263,
+              "pr_auc": 0.8068027210884354
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9985443959243087,
+              "pr_auc": 0.25
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9733139252789907,
+              "pr_auc": 0.017857142857142856
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.7188411540088588,
+          "micro_f1": 0.9283160865475071,
+          "macro_roc_auc": 0.986769989575955,
+          "macro_pr_auc": 0.9104361105356248,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.9279279279279279,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9835675760914696,
+              "pr_auc": 0.9800333012005097
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.9717057396928052,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9945584582298318,
+              "pr_auc": 0.9926603898949404
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.9590316573556797,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9941482899266215,
+              "pr_auc": 0.9886556547692997
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.8316151202749141,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9733791208791209,
+              "pr_auc": 0.9192601026522389
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.9153846153846154,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9740038857675009,
+              "pr_auc": 0.9458880255553932
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.863905325443787,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9817841391111539,
+              "pr_auc": 0.9257414102126166
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 1.0,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.9927184466019418,
+              "pr_auc": 0.53125
+            }
+          }
+        }
+      },
+      "tuned_per_drug_threshold": {
+        "thresholds": {
+          "RIF": 0.5186517238616943,
+          "INH": 0.5222818851470947,
+          "EMB": 0.6439212560653687,
+          "PZA": 0.26417213678359985,
+          "STM": 0.47070494294166565,
+          "LEV": 0.3507239818572998,
+          "CAP": 0.04681437090039253,
+          "ETH": 0.11105529963970184,
+          "LZD": 0.009999999776482582
+        },
+        "tuned_on": "val (F1-maximizing per drug via precision_recall_curve)",
+        "val": {
+          "macro_f1": 0.7576448490875864,
+          "micro_f1": 0.9337928532559405,
+          "macro_roc_auc": 0.9873769832766306,
+          "macro_pr_auc": 0.7640031772040224,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5186517238616943,
+              "f1": 0.9329863370201692,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9829898416829841,
+              "pr_auc": 0.9796665223972548
+            },
+            "INH": {
+              "threshold": 0.5222818851470947,
+              "f1": 0.9832402234636871,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.997329741952647,
+              "pr_auc": 0.9967354847723564
+            },
+            "EMB": {
+              "threshold": 0.6439212560653687,
+              "f1": 0.9694244604316546,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9953741592587366,
+              "pr_auc": 0.991447685697576
+            },
+            "PZA": {
+              "threshold": 0.26417213678359985,
+              "f1": 0.8319559228650137,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9728445570058661,
+              "pr_auc": 0.9237359741835262
+            },
+            "STM": {
+              "threshold": 0.47070494294166565,
+              "f1": 0.9336016096579477,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9899193548387097,
+              "pr_auc": 0.9694660704433586
+            },
+            "LEV": {
+              "threshold": 0.3507239818572998,
+              "f1": 0.8787061994609164,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.989883387888707,
+              "pr_auc": 0.9403169933965522
+            },
+            "CAP": {
+              "threshold": 0.04681437090039253,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9861934856587263,
+              "pr_auc": 0.8068027210884354
+            },
+            "ETH": {
+              "threshold": 0.11105529963970184,
+              "f1": 0.4,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9985443959243087,
+              "pr_auc": 0.25
+            },
+            "LZD": {
+              "threshold": 0.009999999776482582,
+              "f1": 0.0,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9733139252789907,
+              "pr_auc": 0.017857142857142856
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.7604196425305767,
+          "micro_f1": 0.9251902728791536,
+          "macro_roc_auc": 0.986769989575955,
+          "macro_pr_auc": 0.9104361105356248,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5186517238616943,
+              "f1": 0.9289405684754521,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9835675760914696,
+              "pr_auc": 0.9800333012005097
+            },
+            "INH": {
+              "threshold": 0.5222818851470947,
+              "f1": 0.9717057396928052,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9945584582298318,
+              "pr_auc": 0.9926603898949404
+            },
+            "EMB": {
+              "threshold": 0.6439212560653687,
+              "f1": 0.9568480300187617,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9941482899266215,
+              "pr_auc": 0.9886556547692997
+            },
+            "PZA": {
+              "threshold": 0.26417213678359985,
+              "f1": 0.8220858895705522,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9733791208791209,
+              "pr_auc": 0.9192601026522389
+            },
+            "STM": {
+              "threshold": 0.47070494294166565,
+              "f1": 0.9157088122605364,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9740038857675009,
+              "pr_auc": 0.9458880255553932
+            },
+            "LEV": {
+              "threshold": 0.3507239818572998,
+              "f1": 0.8595988538681948,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9817841391111539,
+              "pr_auc": 0.9257414102126166
+            },
+            "CAP": {
+              "threshold": 0.04681437090039253,
+              "f1": 0.8888888888888888,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.11105529963970184,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.009999999776482582,
+              "f1": 0.5,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.9927184466019418,
+              "pr_auc": 0.53125
+            }
+          }
+        }
+      }
+    }
+  },
+  "gnn_with_graph": [
+    {
+      "seed": 42,
+      "best_epoch": 84,
+      "fit_seconds": 280.2,
+      "default_threshold_0.5": {
+        "val": {
+          "macro_f1": 0.6554975247962691,
+          "micro_f1": 0.8332797944105365,
+          "macro_roc_auc": 0.9778755185291522,
+          "macro_pr_auc": 0.7622500305876536,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.8985322271857051,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.973707121017211,
+              "pr_auc": 0.9648300047264272
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.936006168080185,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9937749401436553,
+              "pr_auc": 0.987913463073894
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.8916055419722901,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9866810121819293,
+              "pr_auc": 0.9659999730394123
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.703862660944206,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9501016549526194,
+              "pr_auc": 0.8449679301427377
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.7594108019639935,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9805789202261977,
+              "pr_auc": 0.9351883806629582
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.5989492119089317,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9759206219312603,
+              "pr_auc": 0.8362929199568165
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9944579484686437,
+              "pr_auc": 0.8161290322580645
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.2222222222222222,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9995147986414361,
+              "pr_auc": 0.5
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9461426491994178,
+              "pr_auc": 0.008928571428571428
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.6974799463740146,
+          "micro_f1": 0.8237578896261532,
+          "macro_roc_auc": 0.9800794657528147,
+          "macro_pr_auc": 0.8758178352025106,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.9009463722397476,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9747672543195682,
+              "pr_auc": 0.9644180588036085
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.9224806201550387,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9893047474562238,
+              "pr_auc": 0.9786937764277147
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.8663366336633663,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9837875690634372,
+              "pr_auc": 0.9514430958183384
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.6757369614512472,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9525952380952382,
+              "pr_auc": 0.8157993899967857
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.7813504823151125,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9751504550221382,
+              "pr_auc": 0.9245552037957503
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.5749128919860628,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9764382290562036,
+              "pr_auc": 0.8512249935125807
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.8888888888888888,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.6666666666666666,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.9885922330097087,
+              "pr_auc": 0.5204081632653061
+            }
+          }
+        }
+      },
+      "tuned_per_drug_threshold": {
+        "thresholds": {
+          "RIF": 0.5539319515228271,
+          "INH": 0.6603185534477234,
+          "EMB": 0.7142801284790039,
+          "PZA": 0.6121413111686707,
+          "STM": 0.7973978519439697,
+          "LEV": 0.8653368353843689,
+          "CAP": 0.9900000095367432,
+          "ETH": 0.9900000095367432,
+          "LZD": 0.05670536682009697
+        },
+        "val": {
+          "macro_f1": 0.7278615672226103,
+          "micro_f1": 0.8612407119405564,
+          "macro_roc_auc": 0.9778755185291522,
+          "macro_pr_auc": 0.7622500305876536,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5539319515228271,
+              "f1": 0.9034749034749034,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.973707121017211,
+              "pr_auc": 0.9648300047264272
+            },
+            "INH": {
+              "threshold": 0.6603185534477234,
+              "f1": 0.9498381877022654,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9937749401436553,
+              "pr_auc": 0.987913463073894
+            },
+            "EMB": {
+              "threshold": 0.7142801284790039,
+              "f1": 0.9090909090909091,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9866810121819293,
+              "pr_auc": 0.9659999730394123
+            },
+            "PZA": {
+              "threshold": 0.6121413111686707,
+              "f1": 0.7345029239766082,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9501016549526194,
+              "pr_auc": 0.8449679301427377
+            },
+            "STM": {
+              "threshold": 0.7973978519439697,
+              "f1": 0.8805031446540881,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9805789202261977,
+              "pr_auc": 0.9351883806629582
+            },
+            "LEV": {
+              "threshold": 0.8653368353843689,
+              "f1": 0.7667560321715817,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9759206219312603,
+              "pr_auc": 0.8362929199568165
+            },
+            "CAP": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9944579484686437,
+              "pr_auc": 0.8161290322580645
+            },
+            "ETH": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.5,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9995147986414361,
+              "pr_auc": 0.5
+            },
+            "LZD": {
+              "threshold": 0.05670536682009697,
+              "f1": 0.017699115044247787,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9461426491994178,
+              "pr_auc": 0.008928571428571428
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.6785440871777392,
+          "micro_f1": 0.8527918781725888,
+          "macro_roc_auc": 0.9800794657528147,
+          "macro_pr_auc": 0.8758178352025106,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5539319515228271,
+              "f1": 0.8980115458627326,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9747672543195682,
+              "pr_auc": 0.9644180588036085
+            },
+            "INH": {
+              "threshold": 0.6603185534477234,
+              "f1": 0.9409862570735651,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9893047474562238,
+              "pr_auc": 0.9786937764277147
+            },
+            "EMB": {
+              "threshold": 0.7142801284790039,
+              "f1": 0.8939526730937774,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9837875690634372,
+              "pr_auc": 0.9514430958183384
+            },
+            "PZA": {
+              "threshold": 0.6121413111686707,
+              "f1": 0.7080745341614907,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9525952380952382,
+              "pr_auc": 0.8157993899967857
+            },
+            "STM": {
+              "threshold": 0.7973978519439697,
+              "f1": 0.868,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9751504550221382,
+              "pr_auc": 0.9245552037957503
+            },
+            "LEV": {
+              "threshold": 0.8653368353843689,
+              "f1": 0.7597765363128491,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9764382290562036,
+              "pr_auc": 0.8512249935125807
+            },
+            "CAP": {
+              "threshold": 0.9900000095367432,
+              "f1": 1.0,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.05670536682009697,
+              "f1": 0.0380952380952381,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.9885922330097087,
+              "pr_auc": 0.5204081632653061
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "best_epoch": 43,
+      "fit_seconds": 179.5,
+      "default_threshold_0.5": {
+        "val": {
+          "macro_f1": 0.6263248117342186,
+          "micro_f1": 0.781134401972873,
+          "macro_roc_auc": 0.9736874573657482,
+          "macro_pr_auc": 0.7390113273618028,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.8952745849297573,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9695890194620279,
+              "pr_auc": 0.960748068442361
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.8577878103837472,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.975657311341669,
+              "pr_auc": 0.9513192108682522
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.8804523424878837,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.984155260806171,
+              "pr_auc": 0.9614085194205372
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.676822633297062,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9374601414344255,
+              "pr_auc": 0.808741355075397
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.6182795698924731,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9549205107230501,
+              "pr_auc": 0.820838683112243
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.6,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9690641805003508,
+              "pr_auc": 0.7795275908189168
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9985415653864852,
+              "pr_auc": 0.8500000000000001
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.2,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9995147986414362,
+              "pr_auc": 0.5
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.019417475728155338,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9742843279961184,
+              "pr_auc": 0.018518518518518517
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.5904114744524889,
+          "micro_f1": 0.7744034707158352,
+          "macro_roc_auc": 0.9714216566468146,
+          "macro_pr_auc": 0.7876201748828522,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.8967701076630779,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9704945945514356,
+              "pr_auc": 0.9583601029484404
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.8612153038259565,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9740782110486859,
+              "pr_auc": 0.9459549054865861
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.8485342019543974,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9801041857505134,
+              "pr_auc": 0.9432331012997662
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.6612529002320185,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9452380952380953,
+              "pr_auc": 0.7976201361716693
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.6394736842105263,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.95443803684268,
+              "pr_auc": 0.8254782737518476
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.5694200351493849,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9666803239178637,
+              "pr_auc": 0.7914585744191703
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.8,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.037037037037037035,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.9803398058252427,
+              "pr_auc": 0.038856304985337244
+            }
+          }
+        }
+      },
+      "tuned_per_drug_threshold": {
+        "thresholds": {
+          "RIF": 0.6005493402481079,
+          "INH": 0.6389452815055847,
+          "EMB": 0.7092345952987671,
+          "PZA": 0.6306294202804565,
+          "STM": 0.8909499049186707,
+          "LEV": 0.7839574217796326,
+          "CAP": 0.9900000095367432,
+          "ETH": 0.9900000095367432,
+          "LZD": 0.9687234163284302
+        },
+        "val": {
+          "macro_f1": 0.6950295487030602,
+          "micro_f1": 0.8287408440878967,
+          "macro_roc_auc": 0.9736874573657482,
+          "macro_pr_auc": 0.7390113273618028,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.6005493402481079,
+              "f1": 0.8994082840236687,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9695890194620279,
+              "pr_auc": 0.960748068442361
+            },
+            "INH": {
+              "threshold": 0.6389452815055847,
+              "f1": 0.8640625,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.975657311341669,
+              "pr_auc": 0.9513192108682522
+            },
+            "EMB": {
+              "threshold": 0.7092345952987671,
+              "f1": 0.8962585034013606,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.984155260806171,
+              "pr_auc": 0.9614085194205372
+            },
+            "PZA": {
+              "threshold": 0.6306294202804565,
+              "f1": 0.6989117291414753,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9374601414344255,
+              "pr_auc": 0.808741355075397
+            },
+            "STM": {
+              "threshold": 0.8909499049186707,
+              "f1": 0.7324561403508771,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9549205107230501,
+              "pr_auc": 0.820838683112243
+            },
+            "LEV": {
+              "threshold": 0.7839574217796326,
+              "f1": 0.7389162561576355,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9690641805003508,
+              "pr_auc": 0.7795275908189168
+            },
+            "CAP": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9985415653864852,
+              "pr_auc": 0.8500000000000001
+            },
+            "ETH": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.5,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9995147986414362,
+              "pr_auc": 0.5
+            },
+            "LZD": {
+              "threshold": 0.9687234163284302,
+              "f1": 0.03636363636363636,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9742843279961184,
+              "pr_auc": 0.018518518518518517
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.638591246553615,
+          "micro_f1": 0.8137029842839484,
+          "macro_roc_auc": 0.9714216566468146,
+          "macro_pr_auc": 0.7876201748828522,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.6005493402481079,
+              "f1": 0.8930899608865711,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9704945945514356,
+              "pr_auc": 0.9583601029484404
+            },
+            "INH": {
+              "threshold": 0.6389452815055847,
+              "f1": 0.8513302034428795,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9740782110486859,
+              "pr_auc": 0.9459549054865861
+            },
+            "EMB": {
+              "threshold": 0.7092345952987671,
+              "f1": 0.8673026886383348,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9801041857505134,
+              "pr_auc": 0.9432331012997662
+            },
+            "PZA": {
+              "threshold": 0.6306294202804565,
+              "f1": 0.6796875,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9452380952380953,
+              "pr_auc": 0.7976201361716693
+            },
+            "STM": {
+              "threshold": 0.8909499049186707,
+              "f1": 0.7112970711297071,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.95443803684268,
+              "pr_auc": 0.8254782737518476
+            },
+            "LEV": {
+              "threshold": 0.7839574217796326,
+              "f1": 0.7037974683544304,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9666803239178637,
+              "pr_auc": 0.7914585744191703
+            },
+            "CAP": {
+              "threshold": 0.9900000095367432,
+              "f1": 1.0,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.9687234163284302,
+              "f1": 0.04081632653061224,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.9803398058252427,
+              "pr_auc": 0.038856304985337244
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "best_epoch": 220,
+      "fit_seconds": 628.3,
+      "default_threshold_0.5": {
+        "val": {
+          "macro_f1": 0.7102981770567345,
+          "micro_f1": 0.8892276422764228,
+          "macro_roc_auc": 0.9882713939749629,
+          "macro_pr_auc": 0.7707147006884827,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.9239690721649485,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9811147061204786,
+              "pr_auc": 0.9760062724372651
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.982484076433121,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9978418462357009,
+              "pr_auc": 0.9966027691346162
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.9265822784810127,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9940795352993744,
+              "pr_auc": 0.9881839974235476
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.7771156138259833,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9681364590774293,
+              "pr_auc": 0.9099606325850285
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.8686131386861314,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9907484795675214,
+              "pr_auc": 0.9716029158619187
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.7393162393162394,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9874678512976386,
+              "pr_auc": 0.9136770476576226
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9964025279533301,
+              "pr_auc": 0.8238095238095238
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.2857142857142857,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9990295972828723,
+              "pr_auc": 0.3333333333333333
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9796215429403201,
+              "pr_auc": 0.023255813953488372
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.6840522996124148,
+          "micro_f1": 0.8833995508723441,
+          "macro_roc_auc": 0.9879191455295273,
+          "macro_pr_auc": 0.909413347584937,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.9217948717948717,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9833854316374437,
+              "pr_auc": 0.977715807144913
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.9709208400646203,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.994179461958666,
+              "pr_auc": 0.9920444771743436
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.9152249134948097,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9926995246314205,
+              "pr_auc": 0.9842070810272354
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.7647831800262812,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9712380952380952,
+              "pr_auc": 0.9050841048436049
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.861646234676007,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9811006652780095,
+              "pr_auc": 0.9506932088496567
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.7221006564551422,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9853616359780198,
+              "pr_auc": 0.9179430540206946
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.8888888888888888,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.1111111111111111,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.9953883495145631,
+              "pr_auc": 0.5476190476190477
+            }
+          }
+        }
+      },
+      "tuned_per_drug_threshold": {
+        "thresholds": {
+          "RIF": 0.48878633975982666,
+          "INH": 0.45223504304885864,
+          "EMB": 0.7882738709449768,
+          "PZA": 0.667598307132721,
+          "STM": 0.9013811349868774,
+          "LEV": 0.8419507741928101,
+          "CAP": 0.9900000095367432,
+          "ETH": 0.9900000095367432,
+          "LZD": 0.4434009790420532
+        },
+        "val": {
+          "macro_f1": 0.7640876382278363,
+          "micro_f1": 0.9162210338680927,
+          "macro_roc_auc": 0.9882713939749629,
+          "macro_pr_auc": 0.7707147006884827,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.48878633975982666,
+              "f1": 0.926829268292683,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9811147061204786,
+              "pr_auc": 0.9760062724372651
+            },
+            "INH": {
+              "threshold": 0.45223504304885864,
+              "f1": 0.9833465503568596,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9978418462357009,
+              "pr_auc": 0.9966027691346162
+            },
+            "EMB": {
+              "threshold": 0.7882738709449768,
+              "f1": 0.948306595365419,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9940795352993744,
+              "pr_auc": 0.9881839974235476
+            },
+            "PZA": {
+              "threshold": 0.667598307132721,
+              "f1": 0.816711590296496,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9681364590774293,
+              "pr_auc": 0.9099606325850285
+            },
+            "STM": {
+              "threshold": 0.9013811349868774,
+              "f1": 0.9360824742268041,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9907484795675214,
+              "pr_auc": 0.9716029158619187
+            },
+            "LEV": {
+              "threshold": 0.8419507741928101,
+              "f1": 0.8311688311688312,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9874678512976386,
+              "pr_auc": 0.9136770476576226
+            },
+            "CAP": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9964025279533301,
+              "pr_auc": 0.8238095238095238
+            },
+            "ETH": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.5,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9990295972828723,
+              "pr_auc": 0.3333333333333333
+            },
+            "LZD": {
+              "threshold": 0.4434009790420532,
+              "f1": 0.045454545454545456,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9796215429403201,
+              "pr_auc": 0.023255813953488372
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.722438132407823,
+          "micro_f1": 0.9114431486880467,
+          "macro_roc_auc": 0.9879191455295273,
+          "macro_pr_auc": 0.909413347584937,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.48878633975982666,
+              "f1": 0.9194373401534527,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9833854316374437,
+              "pr_auc": 0.977715807144913
+            },
+            "INH": {
+              "threshold": 0.45223504304885864,
+              "f1": 0.9701853344077357,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.994179461958666,
+              "pr_auc": 0.9920444771743436
+            },
+            "EMB": {
+              "threshold": 0.7882738709449768,
+              "f1": 0.9485294117647058,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9926995246314205,
+              "pr_auc": 0.9842070810272354
+            },
+            "PZA": {
+              "threshold": 0.667598307132721,
+              "f1": 0.808955223880597,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9712380952380952,
+              "pr_auc": 0.9050841048436049
+            },
+            "STM": {
+              "threshold": 0.9013811349868774,
+              "f1": 0.9094488188976378,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9811006652780095,
+              "pr_auc": 0.9506932088496567
+            },
+            "LEV": {
+              "threshold": 0.8419507741928101,
+              "f1": 0.8478260869565217,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9853616359780198,
+              "pr_auc": 0.9179430540206946
+            },
+            "CAP": {
+              "threshold": 0.9900000095367432,
+              "f1": 1.0,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.4434009790420532,
+              "f1": 0.0975609756097561,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.9953883495145631,
+              "pr_auc": 0.5476190476190477
+            }
+          }
+        }
+      }
+    }
+  ],
+  "gnn_no_graph": [
+    {
+      "seed": 42,
+      "best_epoch": 300,
+      "fit_seconds": 133.4,
+      "default_threshold_0.5": {
+        "val": {
+          "macro_f1": 0.7267684862131921,
+          "micro_f1": 0.9003956648890418,
+          "macro_roc_auc": 0.988683739029792,
+          "macro_pr_auc": 0.7722788969631637,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.9209003215434084,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9805849503378942,
+              "pr_auc": 0.975076949224996
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.9833729216152018,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9972576926487542,
+              "pr_auc": 0.9961106489837643
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.9431034482758621,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9952165937632285,
+              "pr_auc": 0.9902745840517221
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.78239608801956,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9713134885548679,
+              "pr_auc": 0.9172093062353851
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.9076923076923077,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9910907991606501,
+              "pr_auc": 0.9733246900615087
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.7844036697247706,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9890986672901566,
+              "pr_auc": 0.9265525221497242
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9929995138551289,
+              "pr_auc": 0.812987012987013
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.2857142857142857,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9990295972828723,
+              "pr_auc": 0.3333333333333333
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.044444444444444446,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9815623483745755,
+              "pr_auc": 0.02564102564102564
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.6951735322056213,
+          "micro_f1": 0.8961267605633803,
+          "macro_roc_auc": 0.9880378592005863,
+          "macro_pr_auc": 0.9094742937299862,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.921885087153002,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9821343737025325,
+              "pr_auc": 0.9766718426127016
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.9724919093851133,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9936415317673339,
+              "pr_auc": 0.991305230661886
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.9384478144513827,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9933913642981805,
+              "pr_auc": 0.9850713098621275
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.7671957671957672,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9739734432234434,
+              "pr_auc": 0.9053406793115496
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.9023941068139963,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9807019929495777,
+              "pr_auc": 0.9522459572160784
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.7652582159624414,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9857999734888653,
+              "pr_auc": 0.9234926635088806
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.8888888888888888,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 0.9999999999999999,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.1,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.9946601941747573,
+              "pr_auc": 0.5416666666666666
+            }
+          }
+        }
+      },
+      "tuned_per_drug_threshold": {
+        "thresholds": {
+          "RIF": 0.5370760560035706,
+          "INH": 0.5190001726150513,
+          "EMB": 0.6703639626502991,
+          "PZA": 0.7360795140266418,
+          "STM": 0.736243486404419,
+          "LEV": 0.8518159985542297,
+          "CAP": 0.985511839389801,
+          "ETH": 0.9900000095367432,
+          "LZD": 0.5317186117172241
+        },
+        "val": {
+          "macro_f1": 0.769857364980598,
+          "micro_f1": 0.9232718060079623,
+          "macro_roc_auc": 0.988683739029792,
+          "macro_pr_auc": 0.7722788969631637,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5370760560035706,
+              "f1": 0.9252761533463287,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9805849503378942,
+              "pr_auc": 0.975076949224996
+            },
+            "INH": {
+              "threshold": 0.5190001726150513,
+              "f1": 0.9864972200158856,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9972576926487542,
+              "pr_auc": 0.9961106489837643
+            },
+            "EMB": {
+              "threshold": 0.6703639626502991,
+              "f1": 0.9575221238938053,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9952165937632285,
+              "pr_auc": 0.9902745840517221
+            },
+            "PZA": {
+              "threshold": 0.7360795140266418,
+              "f1": 0.8223201174743024,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9713134885548679,
+              "pr_auc": 0.9172093062353851
+            },
+            "STM": {
+              "threshold": 0.736243486404419,
+              "f1": 0.9395161290322581,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9910907991606501,
+              "pr_auc": 0.9733246900615087
+            },
+            "LEV": {
+              "threshold": 0.8518159985542297,
+              "f1": 0.8586956521739131,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9890986672901566,
+              "pr_auc": 0.9265525221497242
+            },
+            "CAP": {
+              "threshold": 0.985511839389801,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9929995138551289,
+              "pr_auc": 0.812987012987013
+            },
+            "ETH": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.5,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9990295972828723,
+              "pr_auc": 0.3333333333333333
+            },
+            "LZD": {
+              "threshold": 0.5317186117172241,
+              "f1": 0.05,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9815623483745755,
+              "pr_auc": 0.02564102564102564
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.7269314723902842,
+          "micro_f1": 0.9173293878305899,
+          "macro_roc_auc": 0.9880378592005863,
+          "macro_pr_auc": 0.9094742937299862,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5370760560035706,
+              "f1": 0.92578125,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9821343737025325,
+              "pr_auc": 0.9766718426127016
+            },
+            "INH": {
+              "threshold": 0.5190001726150513,
+              "f1": 0.9724919093851133,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9936415317673339,
+              "pr_auc": 0.991305230661886
+            },
+            "EMB": {
+              "threshold": 0.6703639626502991,
+              "f1": 0.9478499542543458,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9933913642981805,
+              "pr_auc": 0.9850713098621275
+            },
+            "PZA": {
+              "threshold": 0.7360795140266418,
+              "f1": 0.8164556962025317,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9739734432234434,
+              "pr_auc": 0.9053406793115496
+            },
+            "STM": {
+              "threshold": 0.736243486404419,
+              "f1": 0.9230769230769231,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9807019929495777,
+              "pr_auc": 0.9522459572160784
+            },
+            "LEV": {
+              "threshold": 0.8518159985542297,
+              "f1": 0.8390804597701149,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9857999734888653,
+              "pr_auc": 0.9234926635088806
+            },
+            "CAP": {
+              "threshold": 0.985511839389801,
+              "f1": 1.0,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 0.9999999999999999,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.5317186117172241,
+              "f1": 0.11764705882352941,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.9946601941747573,
+              "pr_auc": 0.5416666666666666
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "best_epoch": 59,
+      "fit_seconds": 37.4,
+      "default_threshold_0.5": {
+        "val": {
+          "macro_f1": 0.6464132028952361,
+          "micro_f1": 0.8052857825187072,
+          "macro_roc_auc": 0.9777617825397312,
+          "macro_pr_auc": 0.7546850643653398,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.9035202086049544,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9714321697697362,
+              "pr_auc": 0.9626890150178182
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.895429899302866,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9866232153941651,
+              "pr_auc": 0.9740495299353213
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.8945634266886326,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9864223225624382,
+              "pr_auc": 0.965234572341576
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.6990950226244343,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9412732428512673,
+              "pr_auc": 0.8146492466647893
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.6897590361445783,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9707961375680194,
+              "pr_auc": 0.8930856275872004
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.6063829787234043,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9781622632686463,
+              "pr_auc": 0.8530398145033546
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9918327661643169,
+              "pr_auc": 0.8112359550561798
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.2222222222222222,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9995147986414362,
+              "pr_auc": 0.5
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.017857142857142856,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9737991266375545,
+              "pr_auc": 0.01818181818181818
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.5997130091071451,
+          "micro_f1": 0.7966047405509289,
+          "macro_roc_auc": 0.9754339701501011,
+          "macro_pr_auc": 0.8089984014481091,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.9069616135328562,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9737976469930696,
+              "pr_auc": 0.9665958376704854
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.8847641144624904,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9827940138594824,
+              "pr_auc": 0.968237988703897
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.8762541806020067,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9848337656326838,
+              "pr_auc": 0.960360474571043
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.6745843230403801,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9460064102564103,
+              "pr_auc": 0.7976044309684474
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.7149321266968326,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9654700315847379,
+              "pr_auc": 0.8927007550809432
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.5798611111111112,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.974599019088017,
+              "pr_auc": 0.8512604518627837
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.7272727272727273,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.03278688524590164,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.9759708737864078,
+              "pr_auc": 0.03522727272727273
+            }
+          }
+        }
+      },
+      "tuned_per_drug_threshold": {
+        "thresholds": {
+          "RIF": 0.5846713185310364,
+          "INH": 0.6834609508514404,
+          "EMB": 0.6520145535469055,
+          "PZA": 0.5570080876350403,
+          "STM": 0.8094717264175415,
+          "LEV": 0.8699862360954285,
+          "CAP": 0.9814757108688354,
+          "ETH": 0.9900000095367432,
+          "LZD": 0.9900000095367432
+        },
+        "val": {
+          "macro_f1": 0.7131740284868879,
+          "micro_f1": 0.8485169491525424,
+          "macro_roc_auc": 0.9777617825397312,
+          "macro_pr_auc": 0.7546850643653398,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5846713185310364,
+              "f1": 0.906084656084656,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9714321697697362,
+              "pr_auc": 0.9626890150178182
+            },
+            "INH": {
+              "threshold": 0.6834609508514404,
+              "f1": 0.9028571428571428,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9866232153941651,
+              "pr_auc": 0.9740495299353213
+            },
+            "EMB": {
+              "threshold": 0.6520145535469055,
+              "f1": 0.9052453468697124,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9864223225624382,
+              "pr_auc": 0.965234572341576
+            },
+            "PZA": {
+              "threshold": 0.5570080876350403,
+              "f1": 0.7029585798816568,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9412732428512673,
+              "pr_auc": 0.8146492466647893
+            },
+            "STM": {
+              "threshold": 0.8094717264175415,
+              "f1": 0.8219780219780219,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.9707961375680194,
+              "pr_auc": 0.8930856275872004
+            },
+            "LEV": {
+              "threshold": 0.8699862360954285,
+              "f1": 0.7588075880758808,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9781622632686463,
+              "pr_auc": 0.8530398145033546
+            },
+            "CAP": {
+              "threshold": 0.9814757108688354,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9918327661643169,
+              "pr_auc": 0.8112359550561798
+            },
+            "ETH": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.5,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9995147986414362,
+              "pr_auc": 0.5
+            },
+            "LZD": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.031746031746031744,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9737991266375545,
+              "pr_auc": 0.01818181818181818
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.6614796352097911,
+          "micro_f1": 0.840086052348512,
+          "macro_roc_auc": 0.9754339701501011,
+          "macro_pr_auc": 0.8089984014481091,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5846713185310364,
+              "f1": 0.904887714663144,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.9737976469930696,
+              "pr_auc": 0.9665958376704854
+            },
+            "INH": {
+              "threshold": 0.6834609508514404,
+              "f1": 0.8963815789473685,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9827940138594824,
+              "pr_auc": 0.968237988703897
+            },
+            "EMB": {
+              "threshold": 0.6520145535469055,
+              "f1": 0.8912097476066144,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9848337656326838,
+              "pr_auc": 0.960360474571043
+            },
+            "PZA": {
+              "threshold": 0.5570080876350403,
+              "f1": 0.6807980049875312,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9460064102564103,
+              "pr_auc": 0.7976044309684474
+            },
+            "STM": {
+              "threshold": 0.8094717264175415,
+              "f1": 0.803347280334728,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9654700315847379,
+              "pr_auc": 0.8927007550809432
+            },
+            "LEV": {
+              "threshold": 0.8699862360954285,
+              "f1": 0.7422096317280453,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.974599019088017,
+              "pr_auc": 0.8512604518627837
+            },
+            "CAP": {
+              "threshold": 0.9814757108688354,
+              "f1": 1.0,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.034482758620689655,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.9759708737864078,
+              "pr_auc": 0.03522727272727273
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "best_epoch": 55,
+      "fit_seconds": 36.0,
+      "default_threshold_0.5": {
+        "val": {
+          "macro_f1": 0.642360899742551,
+          "micro_f1": 0.7998117351741449,
+          "macro_roc_auc": 0.9777737288221449,
+          "macro_pr_auc": 0.7543869120520431,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.9041095890410958,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9723477476883158,
+              "pr_auc": 0.963037260807601
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.8855193328279,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9859016139044071,
+              "pr_auc": 0.9731951354158376
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.8989317995069844,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9869679224871831,
+              "pr_auc": 0.9677637683837862
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.6824034334763949,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9431431611443301,
+              "pr_auc": 0.8236455278968973
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.6825633383010432,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.969975904257211,
+              "pr_auc": 0.8884559505719377
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.5982608695652174,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9768675473462708,
+              "pr_auc": 0.8437925129721211
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9924161400097229,
+              "pr_auc": 0.8120481927710845
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.2222222222222222,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9995147986414361,
+              "pr_auc": 0.5
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.01834862385321101,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.972828723920427,
+              "pr_auc": 0.017543859649122806
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.6051629839351493,
+          "micro_f1": 0.7928469694571926,
+          "macro_roc_auc": 0.9784418965637706,
+          "macro_pr_auc": 0.844375341962695,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.5,
+              "f1": 0.9037711313394018,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.973669896362301,
+              "pr_auc": 0.9667694138081052
+            },
+            "INH": {
+              "threshold": 0.5,
+              "f1": 0.8819497334348819,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9827995709895581,
+              "pr_auc": 0.9687140502272621
+            },
+            "EMB": {
+              "threshold": 0.5,
+              "f1": 0.8786610878661087,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9858209027181826,
+              "pr_auc": 0.9633759246536518
+            },
+            "PZA": {
+              "threshold": 0.5,
+              "f1": 0.6569178852643419,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9481657509157511,
+              "pr_auc": 0.8118381662555786
+            },
+            "STM": {
+              "threshold": 0.5,
+              "f1": 0.7161961367013373,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9668154219230636,
+              "pr_auc": 0.8980856348548318
+            },
+            "LEV": {
+              "threshold": 0.5,
+              "f1": 0.5738831615120275,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9741471247469392,
+              "pr_auc": 0.8373960164903665
+            },
+            "CAP": {
+              "threshold": 0.5,
+              "f1": 0.8,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.5,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.5,
+              "f1": 0.03508771929824561,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.996116504854369,
+              "pr_auc": 0.3088235294117647
+            }
+          }
+        }
+      },
+      "tuned_per_drug_threshold": {
+        "thresholds": {
+          "RIF": 0.4050750136375427,
+          "INH": 0.6820268034934998,
+          "EMB": 0.6219127774238586,
+          "PZA": 0.7689265608787537,
+          "STM": 0.8522904515266418,
+          "LEV": 0.8467156291007996,
+          "CAP": 0.9632323980331421,
+          "ETH": 0.9900000095367432,
+          "LZD": 0.8854488730430603
+        },
+        "val": {
+          "macro_f1": 0.7025081866853287,
+          "micro_f1": 0.8543058313775049,
+          "macro_roc_auc": 0.9777737288221449,
+          "macro_pr_auc": 0.7543869120520431,
+          "n_drugs_with_defined_auc": 9,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.4050750136375427,
+              "f1": 0.9067688378033205,
+              "n_positive": 781,
+              "n_total": 2062,
+              "roc_auc": 0.9723477476883158,
+              "pr_auc": 0.963037260807601
+            },
+            "INH": {
+              "threshold": 0.6820268034934998,
+              "f1": 0.8964401294498382,
+              "n_positive": 630,
+              "n_total": 2062,
+              "roc_auc": 0.9859016139044071,
+              "pr_auc": 0.9731951354158376
+            },
+            "EMB": {
+              "threshold": 0.6219127774238586,
+              "f1": 0.9072512647554806,
+              "n_positive": 570,
+              "n_total": 2062,
+              "roc_auc": 0.9869679224871831,
+              "pr_auc": 0.9677637683837862
+            },
+            "PZA": {
+              "threshold": 0.7689265608787537,
+              "f1": 0.7083333333333334,
+              "n_positive": 351,
+              "n_total": 2062,
+              "roc_auc": 0.9431431611443301,
+              "pr_auc": 0.8236455278968973
+            },
+            "STM": {
+              "threshold": 0.8522904515266418,
+              "f1": 0.8179775280898877,
+              "n_positive": 248,
+              "n_total": 2062,
+              "roc_auc": 0.969975904257211,
+              "pr_auc": 0.8884559505719377
+            },
+            "LEV": {
+              "threshold": 0.8467156291007996,
+              "f1": 0.7624309392265194,
+              "n_positive": 182,
+              "n_total": 2062,
+              "roc_auc": 0.9768675473462708,
+              "pr_auc": 0.8437925129721211
+            },
+            "CAP": {
+              "threshold": 0.9632323980331421,
+              "f1": 0.8888888888888888,
+              "n_positive": 5,
+              "n_total": 2062,
+              "roc_auc": 0.9924161400097229,
+              "pr_auc": 0.8120481927710845
+            },
+            "ETH": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.4,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.9995147986414361,
+              "pr_auc": 0.5
+            },
+            "LZD": {
+              "threshold": 0.8854488730430603,
+              "f1": 0.034482758620689655,
+              "n_positive": 1,
+              "n_total": 2062,
+              "roc_auc": 0.972828723920427,
+              "pr_auc": 0.017543859649122806
+            }
+          }
+        },
+        "test": {
+          "macro_f1": 0.669128601889555,
+          "micro_f1": 0.8499082568807339,
+          "macro_roc_auc": 0.9784418965637706,
+          "macro_pr_auc": 0.844375341962695,
+          "n_drugs_with_defined_auc": 8,
+          "n_drugs_total": 9,
+          "per_drug": {
+            "RIF": {
+              "threshold": 0.4050750136375427,
+              "f1": 0.9047923322683706,
+              "n_positive": 784,
+              "n_total": 2062,
+              "roc_auc": 0.973669896362301,
+              "pr_auc": 0.9667694138081052
+            },
+            "INH": {
+              "threshold": 0.6820268034934998,
+              "f1": 0.8932038834951457,
+              "n_positive": 627,
+              "n_total": 2062,
+              "roc_auc": 0.9827995709895581,
+              "pr_auc": 0.9687140502272621
+            },
+            "EMB": {
+              "threshold": 0.6219127774238586,
+              "f1": 0.8959587274290628,
+              "n_positive": 548,
+              "n_total": 2062,
+              "roc_auc": 0.9858209027181826,
+              "pr_auc": 0.9633759246536518
+            },
+            "PZA": {
+              "threshold": 0.7689265608787537,
+              "f1": 0.6828478964401294,
+              "n_positive": 312,
+              "n_total": 2062,
+              "roc_auc": 0.9481657509157511,
+              "pr_auc": 0.8118381662555786
+            },
+            "STM": {
+              "threshold": 0.8522904515266418,
+              "f1": 0.8060344827586207,
+              "n_positive": 271,
+              "n_total": 2062,
+              "roc_auc": 0.9668154219230636,
+              "pr_auc": 0.8980856348548318
+            },
+            "LEV": {
+              "threshold": 0.8467156291007996,
+              "f1": 0.7638483965014577,
+              "n_positive": 176,
+              "n_total": 2062,
+              "roc_auc": 0.9741471247469392,
+              "pr_auc": 0.8373960164903665
+            },
+            "CAP": {
+              "threshold": 0.9632323980331421,
+              "f1": 1.0,
+              "n_positive": 4,
+              "n_total": 2062,
+              "roc_auc": 1.0,
+              "pr_auc": 1.0
+            },
+            "ETH": {
+              "threshold": 0.9900000095367432,
+              "f1": 0.0,
+              "n_positive": 0,
+              "n_total": 2062,
+              "roc_auc": null,
+              "pr_auc": null,
+              "auc_note": "single-class in this split; AUC undefined, excluded from macro average"
+            },
+            "LZD": {
+              "threshold": 0.8854488730430603,
+              "f1": 0.07547169811320754,
+              "n_positive": 2,
+              "n_total": 2062,
+              "roc_auc": 0.996116504854369,
+              "pr_auc": 0.3088235294117647
+            }
+          }
+        }
+      }
+    }
+  ]
+}
